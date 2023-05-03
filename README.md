@@ -11,4 +11,4 @@ A Package that allows for Connecting to and communicating with the Upland Third 
   }
 }
 ```
-There is also an option to supply these options directly to the constructor.
+There is also an option to supply these options directly to the constructor. 
