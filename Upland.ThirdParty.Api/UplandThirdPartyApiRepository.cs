@@ -16,21 +16,11 @@ namespace Upland.ThirdParty.Api
         private string basicAuthToken;
         private readonly string linkedEOS;
 
-        public UplandThirdPartyApiRepository(int appId, string securityKey)
-        {
-            this.basicAuthToken = System.Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(appId + ":" + securityKey));
-            this.baseUrl = _configuration["UplandThirdPartyApi:Url"];
-            this.linkedEOS = _configuration["UplandThirdPartyApi:LinkedEOS"];
-            this.httpClient = new HttpClient();
-            this.httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-            this.httpClient.DefaultRequestHeaders.Add("Accept-Language", "en-US,en;q=0.9");
-        }
-
-        public UplandThirdPartyApiRepository(int appId, string securityKey, string url)
+        public UplandThirdPartyApiRepository(int appId, string securityKey, string url, string linkedEOS)
         {
             this.basicAuthToken = System.Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(appId + ":" + securityKey));
             this.baseUrl = url;
-            this.linkedEOS = _configuration["UplandThirdPartyApi:LinkedEOS"];
+            this.linkedEOS = linkedEOS;
             this.httpClient = new HttpClient();
             this.httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
             this.httpClient.DefaultRequestHeaders.Add("Accept-Language", "en-US,en;q=0.9");
